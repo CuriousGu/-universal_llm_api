@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import { z } from 'zod';
 
 import { ChatService } from '../../services/llm';
 import { chatRequest, customChatRequest, APIResponse} from '../models';
