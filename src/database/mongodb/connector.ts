@@ -14,6 +14,15 @@ export class MongoDBConnector {
         this.client = new MongoClient(this.uri);
     }
 
+    async checkConnection(): Promise<void> {
+        try {
+            await this.client.connect();
+            await this.client.db('admin').command({ ping: 1 });
+        } catch (error) {
+            throw new Error("Error connecting to MongoDB");
+        }
+    }
+
     async connect(dbName: string): Promise<void> {
         try {
             await this.client.connect();
