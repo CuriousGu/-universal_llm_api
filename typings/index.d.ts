@@ -1,0 +1,1 @@
+declare module 'chromadb-default-embed';
